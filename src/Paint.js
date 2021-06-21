@@ -1,3 +1,5 @@
+import './Paint.css'
+
 function pickTextColorBasedOnBgColorSimple(bgColor, lightColor, darkColor) {
     var color = (bgColor.charAt(0) === '#') ? bgColor.substring(1, 7) : bgColor;
     var r = parseInt(color.substring(0, 2), 16); // hexToR
@@ -19,7 +21,7 @@ const paintType = {
 
 export function Paint(props) {
 
-    const divStyle = {
+    let divStyle = {
         position: 'relative',
         margin: '1px'
     }
@@ -31,7 +33,7 @@ export function Paint(props) {
         display: 'flex',
         width: '32mm',
         height: '10mm',
-        fontSize: '15px',
+        fontSize: '14px',
         padding: '0 18%',
         lineHeight: '.9',
         fontFamily: 'Paint',
@@ -39,7 +41,7 @@ export function Paint(props) {
         textAlign: 'center',
         position: 'relative',
         boxSizing: 'border-box',
-        color: pickTextColorBasedOnBgColorSimple(props.paint.hex, '#ffffff', '#000000')
+        color: pickTextColorBasedOnBgColorSimple(props.paint.hex2 ?? props.paint.hex, '#ffffff', '#000000')
     }
 
     if (props.paint.hex2) {
@@ -48,9 +50,8 @@ export function Paint(props) {
 
 
     if (props.paint.image) {
-        console.log(props.paint.image)
-        spanStyle = {
-            ...spanStyle,
+        divStyle = {
+            ...divStyle,
             backgroundColor: props.paint.hex,
             backgroundImage: `url("http://citadel.onemaggie.com/img/${props.paint.image}")`,
             backgroundRepeat: 'no-repeat',
@@ -77,5 +78,5 @@ export function Paint(props) {
     }
 
 
-    return (<li style={divStyle}><span style={spanStyle}>{props.paint.name.toUpperCase()}</span><span style={span2Style}>{props.sectionName.toUpperCase()}</span></li>)
+    return (<li style={divStyle}><span style={spanStyle} className={`${props.paint.gloss ? 'gloss' : ''}`}>{props.paint.name.toUpperCase()}</span><span style={span2Style}>{props.sectionName.toUpperCase()}</span></li>)
 }

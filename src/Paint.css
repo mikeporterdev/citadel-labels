@@ -1,0 +1,15 @@
+.gloss:before {
+    content: "";
+    background: hsla(0,0%,100%,.5);
+    background: linear-gradient(
+            0deg
+            ,hsla(0,0%,100%,.2),hsla(0,0%,100%,0));
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 150%;
+    height: 100%;
+    -webkit-transform: translate(-50%,-25%);
+    transform: translate(-50%,-25%);
+}

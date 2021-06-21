@@ -9555,6 +9555,11 @@ saxes@^5.0.0:
   dependencies:
     xmlchars "^2.2.0"
 
+sc-color@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/sc-color/-/sc-color-0.4.0.tgz#d6b244981b57953a25ac050f00902bc72ccaa01d"
+  integrity sha1-1rJEmBtXlTolrAUPAJArxyzKoB0=
+
 scheduler@^0.20.2:
   version "0.20.2"
   resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.20.2.tgz#4baee39436e34aa93b4874bddcbf0fe8b8b50e91"
