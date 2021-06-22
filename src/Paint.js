@@ -5,31 +5,37 @@ function pickTextColorBasedOnBgColorSimple(bgColor, lightColor, darkColor) {
     var r = parseInt(color.substring(0, 2), 16); // hexToR
     var g = parseInt(color.substring(2, 4), 16); // hexToG
     var b = parseInt(color.substring(4, 6), 16); // hexToB
-    return (((r * 0.299) + (g * 0.587) + (b * 0.114)) > 186) ?
+    return (((r * 0.399) + (g * 0.487) + (b * 0.114)) > 160) ?
         darkColor : lightColor;
 }
 
 const paintType = {
     'contrast': '#F3901C',
     'base': '#e00000',
-    'shade': '#5fb310',
-    'layer': '#1d73c8',
+    'shade': '#8dba63',
+    'layer': '#79ade3',
     'technical': '#777777',
-    'dry': '#482301',
-    'air': '#fff',
+    'dry': '#d000a0',
+    'basing': '#b75d10',
+    'auxilliary': '#e3e3e3',
+    'air': '#a9c5fa',
 }
 
 export function Paint(props) {
 
-    let divStyle = {
+    let liStyle = {
         position: 'relative',
-        margin: '1px'
+        margin: '0',
+        border: '1px solid black'
     }
+
+    let paint = props.paint;
+    let sectionName = props.sectionName;
 
     let spanStyle = {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: props.paint.hex,
+        backgroundColor: paint.hex,
         display: 'flex',
         width: '32mm',
         height: '10mm',
@@ -41,22 +47,22 @@ export function Paint(props) {
         textAlign: 'center',
         position: 'relative',
         boxSizing: 'border-box',
-        color: pickTextColorBasedOnBgColorSimple(props.paint.hex2 ?? props.paint.hex, '#ffffff', '#000000')
+        color: pickTextColorBasedOnBgColorSimple(paint.hex2 ?? paint.hex, '#ffffff', '#000000')
     }
 
-    if (props.paint.hex2) {
-        spanStyle['backgroundImage'] = `radial-gradient(${props.paint.hex2}, ${props.paint.hex})`
+    if (paint.hex2) {
+        spanStyle['backgroundImage'] = `radial-gradient(${paint.hex2}, ${paint.hex})`
     }
 
 
-    if (props.paint.image) {
-        divStyle = {
-            ...divStyle,
-            backgroundColor: props.paint.hex,
-            backgroundImage: `url("http://citadel.onemaggie.com/img/${props.paint.image}")`,
+    if (paint.image) {
+        spanStyle = {
+            ...spanStyle,
+            backgroundColor: paint.hex,
+            backgroundImage: `url("http://citadel.onemaggie.com/img/${paint.image}")`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: '100px 100px',
-            backgroundPosition: '50%',
+            backgroundSize: '200px 200px',
+            backgroundPosition: '35%',
         }
     }
 
@@ -66,7 +72,7 @@ export function Paint(props) {
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: paintType[props.sectionName],
+        backgroundColor: paintType[sectionName],
         display: 'flex',
         width: '32mm',
         padding: '0 18%',
@@ -78,5 +84,5 @@ export function Paint(props) {
     }
 
 
-    return (<li style={divStyle}><span style={spanStyle} className={`${props.paint.gloss ? 'gloss' : ''}`}>{props.paint.name.toUpperCase()}</span><span style={span2Style}>{props.sectionName.toUpperCase()}</span></li>)
+    return (<li className={'print'} style={liStyle}><span style={spanStyle} className={`print ${paint.gloss ? 'gloss' : ''}`}>{paint.name.toUpperCase()}</span><span style={span2Style}>{sectionName.toUpperCase()}</span></li>)
 }

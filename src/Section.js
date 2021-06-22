@@ -1,13 +1,6 @@
 import {Paint} from "./Paint";
-
+import './Section.css'
 export function Section(props) {
-
-    const style = {
-        display: 'flex',
-        flexWrap: 'wrap',
-        listStyleType: 'none'
-
-    }
 
     let paints = props.paints;
 
@@ -32,8 +25,8 @@ export function Section(props) {
 
     return (
         <div>
-            <h2>{props.sectionName}</h2>
-            <ul style={style}>
+            <h2>{props.sectionName} [{props.paints.length}]</h2>
+            <ul className={'section' }>
                 {
                     sortedPaints.map(paint => {
                         return (<Paint key={paint.name} paint={paint} sectionName={props.sectionName}/>)
