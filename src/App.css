@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+.column {
+  height: 32mm;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 32mm;
+  padding-bottom: 5px;
+}
+/*.column>* {*/
+/*  flex: 1 1 10mm;*/
+/*}*/
+

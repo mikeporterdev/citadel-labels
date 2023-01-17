@@ -38,8 +38,8 @@ export function Paint(props) {
         backgroundColor: paint.hex,
         display: 'flex',
         width: '32mm',
-        height: '10mm',
-        fontSize: '14px',
+        height: '7mm',
+        fontSize: '11px',
         padding: '0 18%',
         lineHeight: '.9',
         fontFamily: 'Paint',
@@ -84,5 +84,5 @@ export function Paint(props) {
     }
 
 
-    return (<li className={'print'} style={liStyle}><span style={spanStyle} className={`print ${paint.gloss ? 'gloss' : ''}`}>{paint.name.toUpperCase()}</span><span style={span2Style}>{sectionName.toUpperCase()}</span></li>)
+    return (<div className={'print'} style={liStyle}><span style={spanStyle} className={`print ${paint.gloss ? 'gloss' : ''}`}>{paint.name.toUpperCase()}</span><span style={span2Style}>{sectionName.toUpperCase()}</span></div>)
 }
