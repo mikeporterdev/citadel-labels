@@ -1,0 +1,53 @@
+.gloss:before {
+    content: "";
+    background: hsla(0,0%,100%,.5);
+    background: linear-gradient(
+            0deg
+            ,hsla(0,0%,100%,.2),hsla(0,0%,100%,0));
+    border-radius: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 150%;
+    height: 100%;
+    -webkit-transform: translate(-50%,-25%);
+    transform: translate(-50%,-25%);
+}
+
+.paintTypeLabel {
+    height: 3mm;
+    font-size: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 32mm;
+    padding: 0 18%;
+    line-height: .9;
+    font-family: Paint;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.paintTypeLi {
+    position: relative;
+    margin: 0;
+    border: 1px solid black
+}
+
+.paintLabel {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 32mm;
+    height: 7mm;
+    font-size: 11px;
+    padding: 0 18%;
+    line-height: .9;
+    font-family: Paint;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+}
